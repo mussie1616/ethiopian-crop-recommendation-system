@@ -1,0 +1,22 @@
+TEST EXECUTION STATUS
+Date: 2026-11-04
+
+1) python -m pytest -q test_input_checks.py
+   RESULT: 5 passed.
+
+2) python test_model.py
+   RESULT: completed successfully; printed the model's top-three prediction:
+   1. teff — 56.33%
+   2. wheat — 16.67%
+   3. haricot_bean — 8.33%
+   NOTE: scikit-learn emitted an InconsistentVersionWarning because the model was saved with 1.9.1 and this environment has 1.8.0.
+
+3) pytest -q (full suite)
+   RESULT: collection stopped because Streamlit is not installed in this verification environment:
+   ModuleNotFoundError: No module named 'streamlit'
+   Therefore the Streamlit app validation tests were NOT freshly executed here.
+
+4) API tests
+   RESULT: no test_api.py is included in this ZIP; no API test pass count is claimed.
+
+Do not describe the entire test suite as passing. To complete local verification, install requirements.txt in a clean environment, confirm scikit-learn 1.9.1 is installed, then rerun pytest -q.

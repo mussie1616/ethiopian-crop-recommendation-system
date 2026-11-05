@@ -1,0 +1,22 @@
+CURRENT SAVED-MODEL VERIFICATION
+Date: 2026-11-04
+Command: python verify_saved_model.py
+Environment: Python 3.13; pandas available; scikit-learn 1.8.0 in this verification environment.
+Model artifact reports scikit-learn 1.9.1 at serialization time. Loading under 1.8.0 emitted InconsistentVersionWarning; use the training version (1.9.1) for final environment confirmation.
+
+Rows: train=420 validation=90 test=90 | model: RandomForestClassifier, 300 trees | metadata says: Random Forest
+[PASS] model features match metadata
+[PASS] model classes match metadata (10 classes)
+[PASS] test accuracy reproduces saved value (0.8333 vs 0.8333)
+[PASS] test Macro-F1 reproduces saved value (0.8305 vs 0.8305)
+[PASS] test top-3 accuracy reproduces saved value (0.9667 vs 0.9667)
+[PASS] metadata test metrics agree
+[PASS] model is not fitted on test rows (fitted rows 1.000 vs test 0.833)
+[PASS] metadata feature ranges equal the train+validation rows
+[PASS] test rows and fitted rows do not overlap
+Example top-3: [('teff', 0.563), ('wheat', 0.167), ('haricot_bean', 0.083)]
+[PASS] example prediction matches outputs/example_top3_prediction.csv
+
+ALL CHECKS PASSED
+
+Interpretation: all checks in verify_saved_model.py passed in this run. The scikit-learn version warning remains and should be resolved by rerunning with scikit-learn 1.9.1, the version used to save the model.
