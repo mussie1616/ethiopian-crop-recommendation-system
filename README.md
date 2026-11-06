@@ -156,8 +156,6 @@ for rank, i in enumerate(order, start=1):
 monitoring demonstration additionally uses **simulated API traffic** (`simulate_requests.py`), tagged `SIMULATED` in every log line.
 **External links:** see [Project Links](#project-links) at the top of this README for the public GitHub repository and the hosted Streamlit application.
 
-**Deadline note:** The Canvas assignment header supplied to the group shows **November 11, 2026 at 6:59 a.m.**, while the assignment brief body says **November 6, 2026**. These dates conflict. Confirm the active deadline in Canvas with the instructor; do not rely on the date in this README.
-
 | File | Purpose |
 |---|---|
 | `api.py` | FastAPI service: `GET /health`, `GET /model-info`, `POST /predict` (top-3, reliability level, warnings). Pydantic validates every input (missing, wrong type, NaN/inf, physically impossible, unknown field -> HTTP 422), unexpected errors return an `error_id` instead of a stack trace, and each prediction is appended to `logs/predictions.jsonl` (inputs and top-1 only, no personal data). |
